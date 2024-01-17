@@ -36,10 +36,10 @@ def linear_regression_pre_checks (X_train, X_test, y_train, y_test):
         }
     
     if not isinstance(X_train, np.ndarray):
-        x_train = np.array(X_train)
+        X_train = np.array(X_train)
 
     if not isinstance(X_test, np.ndarray):
-        x_test = np.array(X_test)
+        X_test = np.array(X_test)
     
     if not isinstance(y_train, np.ndarray):
         y_train = np.array(y_train)

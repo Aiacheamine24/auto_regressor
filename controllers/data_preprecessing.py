@@ -48,6 +48,7 @@ def data_preprocessing(path: str, target: list, test_size: float = 0.2, random_s
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=random_state)
 
     # Feature Scaling
+    sc = None
     if method_for_scaling == "standard":
         sc = StandardScaler()
         X_train = sc.fit_transform(X_train)
@@ -61,11 +62,11 @@ def data_preprocessing(path: str, target: list, test_size: float = 0.2, random_s
             "success": False,
             "message": "Please provide a valid method for scaling"
         }
-    
     return {
         "success": True,
         "X_train": X_train,
         "X_test": X_test,
         "y_train": y_train,
-        "y_test": y_test
+        "y_test": y_test,
+        "scaler": sc  # Add this line
     }
